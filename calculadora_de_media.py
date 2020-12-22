@@ -54,7 +54,7 @@ else:
         if i == 0:
             pass
         elif (i % 2) == 1:
-            print(f"Nota de {media_list[i]}:")
+            print(f"Nota da {media_list[i]}:")
             nota_list.append(float(input()))
         else:
             peso_list.append(float(media_list[i]))
