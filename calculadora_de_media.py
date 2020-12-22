@@ -1,10 +1,4 @@
 import csv
-import logging
-
-logging.basicConfig(
-    level=logging.DEBUG, format="%(asctime)s -  %(levelname)s -  %(message)s"
-)
-logging.disable(logging.CRITICAL)
 
 try:
     csv_file = open("media.csv")
@@ -19,7 +13,6 @@ csv_list = list(csv_reader)
 
 
 print("\nQual média você quer calcular?\n\na - Adicionar Matéria\n")
-logging.debug(len(csv_list))
 csv_list_temp = []
 for row in csv_list:
     if any(row):
@@ -34,9 +27,7 @@ resposta = input()
 
 if resposta == "a":
     csv_file.close()
-    logging.debug("File closed")
     csv_file = open("media.csv", "a")
-    logging.debug("File opened as write")
     lista_add = []
     print("Nome da matéria:")
     lista_add.append(input())
@@ -47,7 +38,6 @@ if resposta == "a":
         if input_avaliacao == "fim":
             csv_writer = csv.writer(csv_file)
             csv_writer.writerow(lista_add)
-            logging.debug("File closed")
             break
         else:
             lista_add.append(input_avaliacao)
